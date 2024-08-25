@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+   <div class="container">
+    <form action="" id="imageForm">
+                                    
+        <div class=" form-group">
+             <div class="row">
+                 <div class="col-12 col-lg-6">
+                    <div>
+                         <label for="photo" class=" form-label text-secondary">Choose Item's Photo</label>
+                           <i class="feather-info text-primary" tabindex="0" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="focus" data-bs-content="Supported Only Images"></i>
+                         <input id="photo" type="file"name="photo" required accept="image/*" class=" form-control">
+                    </div>
+                    <div class="mt-2">
+                        <label for="ItemName" class=" form-label text-secondary">Item Name</label>
+                        <input type="text" name="ItemName" class=" form-control" id="ItemName">
+                    </div>
+                    <div class="mt-2">
+                         <label for="Cates" class=" form-label text-secondary d-block">Type</label>
+                         <select name="Cates"  class=" form-control form-select" id="selection">
+                             <option selected="selected" disabled>Select Type</option>
+                             <option value="Food">Food</option>
+                             <option value="Cosmetic">Cosmetic</option>
+                             <option value="Drinks">Drinks</option>
+                             <option value="Clothes">Clothes</option>
+                             
+                         </select>
+                     </div>
+                     <div class="row mt-2">
+                        <div class="col-12">
+                            <label for="Qty" class=" form-label text-secondary">Quantity</label>
+                            <input type="text " name="Qty" class=" form-control" id="qty">
+                        </div>
+                        <!-- <div class="col-lg-6 col-12">
+                            <label for="" class=" form-label text-secondary">Unit</label>
+                            <input type="text " class=" form-control">
+                        </div> -->
+                    </div>
+                 </div>
+                 <div class="col-12 col-lg-6">
+                     
+                     <div class="row">
+                         <div class="col-12">
+                             <label for="Price" class="form-label text-secondary">Price</label>
+                             <input type="text " name="Price" class=" form-control" id="price">
+                       </div>
+                       <div class="col-12">
+                         <label for="Desc" class="form-label text-secondary">Description</label>
+
+                           <textarea name="Desc"  cols="30" rows="8" class="form-control" id="desc"></textarea>
+                       </div>
+                     </div>
+                 </div>
+             
+             </div>
+        </div>
+       <div class="row mt-5">
+         <div class="footerSection">
+             <button class="btn btn-primary ">Add Item</button>
+         </div>
+       </div>
+    </form>
+   </div>
+   <script src="js/app.js"></script>
+</body>
+</html>
