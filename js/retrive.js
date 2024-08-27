@@ -1,32 +1,41 @@
 let items=document.getElementsByClassName("sales");
+let itemsList= document.querySelector(".itemSection");
 console.log(items);
 //Displaying
-for(let i=1; i<=localStorage.length;i++){
-    const storedData = localStorage.getItem(`Item ${i}`);
-    
-    if (storedData) {
+console.log("worked"); 
+    if (localStorage.length>0) {
+        console.log("worked");
+        for(let i=1; i<=localStorage.length;i++){
+        const storedData = localStorage.getItem(`Item ${i}`);
         const formData = JSON.parse(storedData);
-        let divParent= document.createElement('div');
-        let img= document.createElement('img');
-        let divChild=document.createElement('div');
-        let p=document.createElement('p');
-        divChild.appendChild(p);
-        divParent.appendChild(divChild);
-        divParent.appendChild(img);
-        let items=document.querySelector(".items");
-    console.log(items);
-     items.appendChild(divParent);
-        // Create an img element to display the stored image
-        // const img = document.createElement('img');
-        img.src = formData.img;
-        p.textContent=formData.name;
-        // document.body.appendChild(divParent);
-    
-        // Display the stored text
-        // const textElement = document.createElement('p');
-        // textElement.textContent = formData.text;
-        // document.body.appendChild(textElement);
-    } else {
-        alert('No data found in localStorage.');
-    }
+        
+        // console.log(formData.img);
+        itemsList.innerHTML+=(` <div class="card col-3 p-3 me-4 mb-5" style="width: auto;">
+                <img src='${formData.img}'class="card-img-top" alt="">
+                <div class="card-body">
+                <p class="card-text">${formData.name}</p>
+                <p class="card-text">Price: ${formData.price}</p>
+                </div>
+                <div class="">
+                            <button class="btn btn-primary" id='${i}' onClick="Clicked(this)">Add Item</button>
+                </div>
+            </div>`);
+    } 
 }
+    else {
+        // alert('No data found in localStorage.');
+        itemsList.innerHTML=`
+        <div class="col-12  w-100 bg-secondary d-flex justify-content-center align-items-center " style="height: 500px !important;">
+            No items are not added!
+        </div>`;
+    }
+    
+    //click
+    let addToCart=0;
+    function Clicked(el){
+        addToCart++;
+        console.log(addToCart);
+        const storedData = localStorage.getItem(`Item ${el.id}`);
+        const formData = JSON.parse(storedData);
+        console.log(formData.name);
+    }

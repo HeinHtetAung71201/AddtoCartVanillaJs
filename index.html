@@ -5,65 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
     <div class="sales">
-        <div class="container-fluid">
-            <a href="addItems.html">addItems</a>
+        <div class="container d-flex">
+            <div>
+                <a href="addItems.html">addItems</a>
+            </div>
+            <button className='border po'>
+                <i class="fa-solid fa-cart-shopping text-primary "></i>
+                <span className='border px-2  absolute  top-0 right-0  translate-x-1/2 bg-red-600 text-white inline-block'>0</span>
+            </button>
         </div>
-        <div class="row items">
-            
-        </div>
-        <!-- <div class="row">
-            <div class="card col-3" style="width: 18rem;">
-                <img src="" class="card-img-top w-50" alt="">
+        <div class="container mt-4 ">
+           <div class="row itemSection">
+            <!-- <div class="card col-3 p-2" style="width: auto;">
+                <img src='img/superCoffee.jpg'class="card-img-top" alt="img">
                 <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <p class="card-text">Super CoffeeMix</p>
+                  <p class="card-text">Price: 1500</p>
                 </div>
-            </div>
-            <div class="card col-3" style="width: 18rem;">
-                <img src="" class="card-img-top w-50" alt="">
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="text-center">
+                     <button class="btn btn-primary ">Add Item</button>
                 </div>
-            </div>
-            <div class="card col-3" style="width: 18rem;">
-                <img src="" class="card-img-top w-50" alt="">
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card col-3" style="width: 18rem;">
-                <img src="" class="card-img-top w-50" alt="">
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card col-3" style="width: 18rem;">
-                <img src="" class="card-img-top w-50" alt="">
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card col-3" style="width: 18rem;">
-                <img src="" class="card-img-top w-50" alt="">
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card col-3" style="width: 18rem;">
-                <img src="" class="card-img-top w-50" style="width:50px;" alt="">
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div> -->
-        <div class="container mt-4">
-            <div class="row m-auto">
-                <div class="col-12  w-100 bg-secondary d-flex justify-content-center align-items-center " style="height: 500px !important;">
-                    No items are not added!
-                </div>
-            </div>
+            </div> -->
+           </div>
         </div>
     </div>
     <script src="js/retrive.js"></script>
