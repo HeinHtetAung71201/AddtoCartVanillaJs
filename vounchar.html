@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-4 justify-content-center">
+                <div>
+                    <h2 class="text-primary text-uppercase">Voucher App</h2>
+                    <p class="">Using mainly with bootstrap and jquery</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center w-100 mt-4">
+                    <h3 class="mb-0 align-items-center">Items List</h3>
+                    <a href="index.html">
+                        <button class="addRowBtn btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </a>
+                </div>
+                <table class="table table-hover mt-4 col-lg-8 col-12">
+                    <thead class=" text-center">
+                       <tr>
+                        <th>#</th>
+                        <th>Item Name</th>
+                        <th>Cost</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                       </tr>
+                    </thead>
+                    <tbody id="tbody">
+                      
+                       
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" class=" text-center">Total</td>
+                            <td class="">
+                                <h4 class=" fw-bold text-end mb-0 total">0</h4>
+                            </td>
+                        </tr>
+
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="vendor/jquery/dist/jquery.min.js"></script> -->
+   <script>
+    AddRow();
+    
+       function AddRow() { 
+        // PriceCalculation();
+        
+            const tbody = document.querySelector("tbody");
+            console.log(sessionStorage.length);
+            for(let i=1;i<=sessionStorage.length;i++){
+                console.log(i);
+                let row = document.createElement("tr");
+
+                const storedSession= sessionStorage.getItem(`cart${i}`);
+                const Data=JSON.parse(storedSession);
+                row.innerHTML = `
+                <td>
+                    <button class="DelBtn btn btn-danger" id='cart${i}' onClick="del(this)">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+                <td>
+                    <input type="text" class="form-control text-capitalize item-name" value='${Data.itemName}'>
+                </td>   
+                <td>
+                    <input type="number" class="form-control Cost text-end" placeholder="0.0" min="0" value='${Data.itemPrice}'>
+                </td>
+                <td>
+                    <input type="number" class="form-control text-end Quantity" placeholder="0.0" min="0">
+                </td>
+                <td class="w-25">
+                    <h4 class="price text-end mb-0">0</h4>
+                </td>
+            `;
+            tbody.appendChild(row);
+            // row.querySelector(".DelBtn").addEventListener("click", deleteRow());
+            row.querySelectorAll("input").forEach(input => {
+                input.addEventListener("change", PriceCalculation);
+            });
+           
+            }
+           
+       }
+
+// document.querySelector(".addRowBtn").addEventListener("click", AddRow);
+
+function del(el) {
+    console.log(el)
+    el.closest("tr").remove();
+    sessionStorage.removeItem(el.id);
+    // const tbody = document.querySelector("tbody");
+    // if (tbody.querySelectorAll("tr").length === 1) {
+    //     // AddRow(); // Uncomment if you want to re-add a row when deleting the last one
+    // } else {
+    //     this.closest("tr").remove();
+    //     sessionStorage.removeItem()
+    //     total();
+    // }
+}
+function PriceCalculation() {
+    const row = this.closest("tr");
+    console.log(row);
+    const cost = row.querySelector(".Cost").value;
+    const quantity = row.querySelector(".Quantity").value;
+    const price = cost * quantity;
+    row.querySelector(".price").textContent = price;
+    total();
+}
+
+function total() {
+    const prices = Array.from(document.querySelectorAll(".price")).map(el => Number(el.textContent));
+    const totalPrice = prices.reduce((x, y) => x + y, 0);
+    document.querySelector(".total").textContent = totalPrice;
+}
+   </script>
+</body>
+</html>
